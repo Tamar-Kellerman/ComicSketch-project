@@ -1,0 +1,96 @@
+########################################
+# תיקיות מודלים - להעלאה בנפרד (Hugging Face / Drive)
+########################################
+Cross-Encoder/
+Sbert/
+LingMessCoref/
+gliner_model/
+
+# קבצי מודל בכל מקום בפרויקט (למקרה שיש עוד)
+*.bin
+*.pt
+*.pth
+*.h5
+*.onnx
+*.pkl
+*.safetensors
+*.ckpt
+
+########################################
+# React (Vite) - comic-sketch-client
+########################################
+comic-sketch-client/node_modules/
+comic-sketch-client/dist/
+comic-sketch-client/dist-ssr/
+comic-sketch-client/.env
+comic-sketch-client/.env.local
+comic-sketch-client/.env.*.local
+comic-sketch-client/*.local
+comic-sketch-client/npm-debug.log*
+comic-sketch-client/yarn-debug.log*
+comic-sketch-client/yarn-error.log*
+
+########################################
+# Python - שרת ה-AI
+########################################
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+ENV/
+.Python
+pip-log.txt
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+########################################
+# C# - ComicSketchAPI
+########################################
+ComicSketchAPI/bin/
+ComicSketchAPI/obj/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+########################################
+# כללי - סודות וקונפיגורציה
+########################################
+.env
+.env.*
+*.env
+appsettings.Development.json
+appsettings.*.local.json
+secrets.json
+*.pem
+*.key
+
+########################################
+# IDE / מערכת הפעלה
+########################################
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+########################################
+# קבצים זמניים / לוגים
+########################################
+*.tmp
+*.temp
+*.log
+logs/
+# תוכן שמשתמשים מעלים - לא חלק מהקוד
+ComicSketchAPI/wwwroot/uploads/*
+!ComicSketchAPI/wwwroot/uploads/.gitkeep

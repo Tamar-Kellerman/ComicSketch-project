@@ -1,0 +1,153 @@
+{
+  "model_paths": {
+    "GLINER_MODEL_PATH": "C:\\Users\\User\\Downloads\\comic_sketch\\gliner_model",
+    "COREF_MODEL_PATH": "C:\\Users\\User\\Downloads\\comic_sketch\\LingMessCoref",
+    "SBERT_MODEL_PATH": "C:\\Users\\User\\Downloads\\comic_sketch\\Sbert",
+    "CROSS_ENCODER_PATH": "C:\\Users\\User\\Downloads\\comic_sketch\\Cross-Encoder",
+    "SPACY_MODEL": "en_core_web_sm",
+    "SIMILARITY_MODEL_NAME": "all-MiniLM-L6-v2",
+    "OLLAMA_MODEL": "llama3-local"
+  },
+
+  "endpoints": {
+    "EXTRACT_ENTITIES_URL": "http://127.0.0.1:8000/extract_entities",
+    "EXTRACT_COREF_URL": "http://127.0.0.1:8000/extract_coref",
+    "GENERATE_DESCRIPTION_URL": "http://127.0.0.1:8000/generate_description",
+    "BATCH_SIMILARITY_URL": "http://127.0.0.1:8000/batch_similarity_matrix",
+    "SCENE_CONTINUITY_URL": "http://localhost:8000/predict_scene_continuity"
+  },
+
+  "env_vars": {
+    "HF_HUB_DISABLE_SYMLINKS_WARNING": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_OFFLINE": "1"
+  },
+
+  "thresholds": {
+    "GLINER_DEFAULT_THRESHOLD": 0.15,
+    "GLINER_PLACES_TIMES_THRESHOLD": 0.05,
+    "SCENE_CONTINUITY_THRESHOLD": 0.3,
+    "CROSS_SCENE_THRESHOLD": 0.4,
+    "COSIMIL_SIMILARITY_THRESHOLD": 0.5,
+    "SBERT_MERGE_THRESHOLD": 0.75,
+    "SCENE_DIVIDE_MIN_SCORE": 0.45,
+    "GLINER_LOCATION_MIN_SCORE": 0.2
+  },
+
+  "llm_options": {
+    "TEMPERATURE": 0.1,
+    "TOP_P": 0.9,
+    "NUM_PREDICT": 60
+  },
+
+  "scene_params": {
+    "CONTEXT_SIZE": 3,
+    "MIN_SENTENCES": 2,
+    "MAX_TOKENS": 394,
+    "MAX_CHARS_IF_NO_PUNCTUATION": 150,
+    "GLINER_MAX_LENGTH": 128,
+    "MERGE_SHORT": true,
+    "INHERIT_TIME": false,
+    "DEBUG": false
+  },
+
+  "merge_params": {
+    "BONUS_ROOT_MATCH": 10000,
+    "BONUS_PROXIMITY_MAX": 100
+  },
+
+  "gliner_labels": {
+    "PLACES_TIMES_LABELS": [
+      "specific date or period",
+      "time of day or duration",
+      "man-made structure",
+      "geographical feature",
+      "country, city or region",
+      "physical object"
+    ],
+    "GLINER_TIME_LABELS": [
+      "specific date or period",
+      "time of day or duration"
+    ],
+    "GLINER_LOCATION_LABELS": [
+      "man-made structure",
+      "geographical feature",
+      "country, city or region"
+    ],
+    "CHARACTER_LABELS": [
+      "person role",
+      "professional",
+      "robot character",
+      "character",
+      "An animal that is a character in the story",
+      "relative"
+    ],
+    "_ENTITY_LABELS_unused": [
+      "person",
+      "location",
+      "building or room",
+      "time expression"
+    ],
+    "TIME_LABEL": "time expression",
+    "LOCATION_LABELS": ["location", "building or room"]
+  },
+
+  "description_sets": {
+  "WEARING_LEMMAS_ACL":  ["wear", "dress", "bear", "carry", "sport", "clothe", "don", "drape", "wrap", "adorn"],
+  "WEARING_LEMMAS_MAIN": ["wear", "sport", "don"],
+  "COPULAR_VERBS": ["be", "seem", "look", "become", "feel", "stand"],
+  "ROLE_VERBS": ["serve", "act", "work", "function", "operate", "perform", "reign", "rule"],
+    "PRONOUN_TEXTS": [
+      "he", "she", "his", "her", "they", "their",
+      "him", "it", "its", "i", "you", "we",
+      "my", "your", "our", "me", "us"
+    ],
+    "BAD_PREFIXES": ["a ", "an ", "the "],
+    "BAD_PARTS": [
+      "than everyone", "than others",
+      "less important", "more important", "obviously"
+    ],
+    "ADJ_POS": ["ADJ", "JJ", "JJR", "JJS"],
+    "BODY_OR_CLOTHING_NOUNS": [
+      "hair", "eyes", "face", "skin", "build",
+      "height", "shirt", "coat", "dress", "hat",
+      "glasses", "beard", "mustache", "jacket",
+      "pants", "shoes", "scarf", "gloves", "bag",
+
+      "eye", "nose", "lips", "chin", "cheek", "forehead", "neck", "shoulder", "eyebrow",
+      "stubble", "scar", "tattoo", "freckle", "dimple", "wrinkle",
+
+      "boots", "boot", "suit", "tie", "cloak", "cape", "gown", "uniform", "hood",
+      "vest", "robe", "skirt", "blouse", "sweater", "cap", "crown", "socks", "glove",
+      "leggings", "shorts", "swimsuit", "pajamas", "apron", "tunic", "toga", "kimono", "sari",
+      "mitten", "mittens",
+
+      "ring", "necklace", "bracelet", "earring", "belt", "watch", "purse", "backpack",
+      "cane", "sword", "armor", "umbrella", "fan", "mask", "helmet", "shield",
+      "quiver", "bow", "staff", "wand", "pendant", "brooch", "pin", "ribbon",
+      "headband", "veil", "tiara"
+    ],
+    "PHYSICAL_NOUNS": [
+      "hair", "eye", "face", "skin", "build",
+      "height", "shirt", "coat", "dress", "hat",
+      "glasses", "beard", "mustache", "jacket",
+      "pant", "shoe", "scarf", "glove", "bag",
+      "hand", "arm"
+    ]
+  },
+
+  "temporal_words": [
+    "morning", "afternoon", "evening", "night", "midnight",
+    "dawn", "dusk", "noon", "today", "yesterday",
+    "tomorrow", "later", "earlier", "soon", "now",
+    "then", "before", "after", "meanwhile", "suddenly",
+    "eventually", "finally", "next", "last", "first",
+    "second", "third", "again", "once", "twice",
+    "always", "never", "often", "sometimes", "usually"
+  ],
+
+  "transition_prepositions": [
+    "to", "into", "through", "toward", "towards",
+    "across", "onto", "from", "out", "out of"
+  ]
+}
